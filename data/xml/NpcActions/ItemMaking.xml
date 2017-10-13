@@ -3603,4 +3603,27 @@
 		<Material Amount="1" ItemId="40052"/>  <!-- Highest Quality Diamond -->
 		<Material Amount="1" ItemId="40055"/>  <!-- Highest Quality Emerald -->
 	</MakeItem>
+<!-- Request Pine Wand Level 2 -->
+	<Action Name="request pinew2">
+		<MakeItem>
+			<Item Amount="1" ItemId="240104"/>
+			<Material Amount="5" ItemId="240103"/>
+		</MakeItem>
+	</Action>
+	
+<!-- Request Pine Wand Level 3 -->
+	<Action Name="request pinew3">
+		<MakeItem>
+			<Item Amount="1" ItemId="240105"/>
+			<Material Amount="5" ItemId="240104"/>
+		</MakeItem>
+	</Action>	
+	
+	<!-- Request Chapter Pine Wand -->
+	<Action Name="request pinew4">
+		<MakeItem>
+			<Item Amount="1" ItemId="240106"/>
+			<Material Amount="5" ItemId="240105"/>
+		</MakeItem>
+	</Action>		
 </NpcActionList>

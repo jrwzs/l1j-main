@@ -1575,6 +1575,110 @@ public class C_ItemUSe extends ClientBasePacket {
 					pc.sendPackets(new S_ServerMessage(79)); // Nothing happened.
 					return;
 				}
+				// Boss wand low tier
+			} else if (itemId == 240103) {		// new conditional statment added to check for the different pine wand item ID
+				if(pc.getMap().isUsePainwand()) {
+					S_AttackPacket s_attackPacket = new S_AttackPacket(pc, 0,
+							ActionCodes.ACTION_Wand);
+					pc.sendPackets(s_attackPacket);
+					pc.broadcastPacket(s_attackPacket);
+					int chargeCount = l1iteminstance.getChargeCount();
+					if (chargeCount <= 0 && itemId != 40412) {
+						pc.sendPackets(new S_ServerMessage(79)); // Nothing happened.
+						return;
+					}
+					int[] mobArray1 = { 45228, 45488, 45497, 45473, 45464, 45515, 45516, 45535, 45534, 45545, 45492, 45529 };
+					int rnd = _random.nextInt(mobArray1.length);
+					L1SpawnUtil.spawn(pc, mobArray1[rnd], 0, 300000);
+					if (itemId == 240103) {
+						l1iteminstance.setChargeCount(l1iteminstance
+								.getChargeCount() - 1);
+						inventory.updateItem(l1iteminstance,
+								L1PcInventory.COL_CHARGE_COUNT);
+					} else {
+						inventory.removeItem(l1iteminstance, 1);
+					}
+				} else {
+					pc.sendPackets(new S_ServerMessage(79)); // Nothing happened.
+				}
+			// Boss wand Mid tier (mainly toi bosses)
+			} else if (itemId == 240104) {		// new conditional statment added to check for the different pine wand item ID
+				if (pc.getMap().isUsePainwand()) {
+					S_AttackPacket s_attackPacket = new S_AttackPacket(pc, 0,
+							ActionCodes.ACTION_Wand);
+					pc.sendPackets(s_attackPacket);
+					pc.broadcastPacket(s_attackPacket);
+					int chargeCount = l1iteminstance.getChargeCount();
+					if (chargeCount <= 0 && itemId != 40412) {
+						pc.sendPackets(new S_ServerMessage(79)); // Nothing happened.
+						return;
+					}
+					int[] mobArray2 = { 45513, 45547, 45606,  45600, 45601, 45610, 45573, 45583, 45584, 45680, 46142, 45646 };
+					int rnd = _random.nextInt(mobArray2.length);
+					L1SpawnUtil.spawn(pc, mobArray2[rnd], 0, 300000);
+					if (itemId == 240104) {
+						l1iteminstance.setChargeCount(l1iteminstance
+								.getChargeCount() - 1);
+						inventory.updateItem(l1iteminstance,
+								L1PcInventory.COL_CHARGE_COUNT);
+					} else {
+						inventory.removeItem(l1iteminstance, 1);
+					}
+				} else {
+					pc.sendPackets(new S_ServerMessage(79)); // Nothing happened.
+				}
+				// Boss Wand High Tier
+			} else if (itemId == 240105) {		// new conditional statment added to check for the different pine wand item ID
+				if (pc.getMap().isUsePainwand()) {
+					S_AttackPacket s_attackPacket = new S_AttackPacket(pc, 0,
+							ActionCodes.ACTION_Wand);
+					pc.sendPackets(s_attackPacket);
+					pc.broadcastPacket(s_attackPacket);
+					int chargeCount = l1iteminstance.getChargeCount();
+					if (chargeCount <= 0 && itemId != 40412) {
+						pc.sendPackets(new S_ServerMessage(79)); // Nothing happened.
+						return;
+					}
+					int[] mobArray3 = { 45649, 46141, 45673, 45672, 45614, 45617, 45618,  };
+					int rnd = _random.nextInt(mobArray3.length);
+					L1SpawnUtil.spawn(pc, mobArray3[rnd], 0, 300000);
+					if (itemId == 240105) {
+						l1iteminstance.setChargeCount(l1iteminstance
+								.getChargeCount() - 1);
+						inventory.updateItem(l1iteminstance,
+								L1PcInventory.COL_CHARGE_COUNT);
+					} else {
+						inventory.removeItem(l1iteminstance, 1);
+					}
+				} else {
+					pc.sendPackets(new S_ServerMessage(79)); // Nothing happened.
+				}
+				// Chapter Bosses
+			} else if (itemId == 240106) {		// new conditional statment added to check for the different pine wand item ID
+				if (pc.getMap().isUsePainwand()) {
+					S_AttackPacket s_attackPacket = new S_AttackPacket(pc, 0,
+							ActionCodes.ACTION_Wand);
+					pc.sendPackets(s_attackPacket);
+					pc.broadcastPacket(s_attackPacket);
+					int chargeCount = l1iteminstance.getChargeCount();
+					if (chargeCount <= 0 && itemId != 40412) {
+						pc.sendPackets(new S_ServerMessage(79)); // Nothing happened.
+						return;
+					}
+					int[] mobArray4 = { 45955, 45956, 45957, 45958, 45959, 45960, 45961, 45962  };
+					int rnd = _random.nextInt(mobArray4.length);
+					L1SpawnUtil.spawn(pc, mobArray4[rnd], 0, 300000);
+					if (itemId == 240106) {
+						l1iteminstance.setChargeCount(l1iteminstance
+								.getChargeCount() - 1);
+						inventory.updateItem(l1iteminstance,
+								L1PcInventory.COL_CHARGE_COUNT);
+					} else {
+						inventory.removeItem(l1iteminstance, 1);
+					}
+				} else {
+					pc.sendPackets(new S_ServerMessage(79)); // Nothing happened.
+				}			
 				L1Object target = L1World.getInstance().findObject(
 						spellsc_objid);
 				//if the target is a player, and either the target or attacker are in a safety zone, deny.
@@ -2142,7 +2246,8 @@ public class C_ItemUSe extends ClientBasePacket {
 				useResolvent(pc, l1iteminstance1, l1iteminstance);
 			} else if (itemId == 41248 || itemId == 41249 || itemId == 41250
 					|| itemId == 49037 || itemId == 49038 || itemId == 49039
-					|| itemId == 49289 || itemId == 49292 || itemId == 49293) {
+					|| itemId == 49289 || itemId == 49292 || itemId == 49293
+					|| itemId == 240107 ) {
 				useMagicDoll(pc, itemId, itemObjid);
 			} else if (itemId >= 41255 && itemId <= 41259) {
 				if (cookStatus == 0) {
@@ -2753,7 +2858,7 @@ public class C_ItemUSe extends ClientBasePacket {
 	private static void useElixir(final L1PcInstance pc, final int itemId,
 			final L1ItemInstance elixir) throws Exception {
 		L1Attribute attribute = elixirs[itemId - FirstElixirId];
-		if (pc.getElixirStats() >= 5 || getBaseStat(pc, attribute) >= 35) {
+		if (pc.getElixirStats() >= 8 || getBaseStat(pc, attribute) >= 50) {
 			pc.sendPackets(new S_ServerMessage(481)); // The maximum value you can get for one attribute is 35. Please choose another attribute.
 			return;
 		}

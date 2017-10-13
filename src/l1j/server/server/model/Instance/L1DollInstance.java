@@ -45,6 +45,7 @@ public class L1DollInstance extends L1NpcInstance {
 	private static Random _random = new Random();
 	private int _dollType;
 	private int _itemObjId;
+	
 
 	public boolean noTarget(int depth) {
 		if (_master.isDead()) {
