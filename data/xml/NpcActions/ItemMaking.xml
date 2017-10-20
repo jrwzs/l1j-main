@@ -3603,6 +3603,13 @@
 		<Material Amount="1" ItemId="40052"/>  <!-- Highest Quality Diamond -->
 		<Material Amount="1" ItemId="40055"/>  <!-- Highest Quality Emerald -->
 	</MakeItem>
+	<!-- Request Pine Wand Level 1 -->
+	<Action Name="request pinew1">
+		<MakeItem>
+			<Item Amount="1" ItemId="240103"/>
+			<Material Amount="50" ItemId="240109"/>
+		</MakeItem>
+	</Action>
 <!-- Request Pine Wand Level 2 -->
 	<Action Name="request pinew2">
 		<MakeItem>
@@ -3625,5 +3632,146 @@
 			<Item Amount="1" ItemId="240106"/>
 			<Material Amount="5" ItemId="240105"/>
 		</MakeItem>
-	</Action>		
+	</Action>
+<!-- Request 1 High Quality Emerald -->
+	<Action Name="request Emerald1">
+		<MakeItem>
+			<Item Amount="1" ItemId="40051"/>
+			<Material Amount="10" ItemId="40047"/>
+		</MakeItem>
+	</Action>
+	<!-- Request 1 Top Quality Emerald -->
+	<Action Name="request Emerald2">
+		<MakeItem>
+			<Item Amount="1" ItemId="40055"/>
+			<Material Amount="15" ItemId="40051"/>
+		</MakeItem>
+	</Action>
+	<!-- Request 15 High Quality Emeralds -->
+	<Action Name="request Emerald3">
+		<MakeItem>
+			<Item Amount="15" ItemId="40051"/>
+			<Material Amount="1" ItemId="40055"/>
+		</MakeItem>
+	</Action>
+	<!-- Request 10 Emeralds -->
+	<Action Name="request Emerald4">
+		<MakeItem>
+			<Item Amount="10" ItemId="40047"/>
+			<Material Amount="1" ItemId="40051"/>
+		</MakeItem>
+	</Action>
+	<!-- Request 1 High Quality Ruby -->
+	<Action Name="request Ruby1">
+		<MakeItem>
+			<Item Amount="1" ItemId="40049"/>
+			<Material Amount="10" ItemId="40045"/>
+		</MakeItem>
+	</Action>
+	<!-- Request 1 Top Quality Ruby -->
+	<Action Name="request Ruby2">
+		<MakeItem>
+			<Item Amount="1" ItemId="40053"/>
+			<Material Amount="15" ItemId="40049"/>
+		</MakeItem>
+	</Action>
+	<!-- Request 15 High Quality Ruby -->
+	<Action Name="request Ruby3">
+		<MakeItem>
+			<Item Amount="10" ItemId="40045"/>
+			<Material Amount="1" ItemId="40053"/>
+		</MakeItem>
+	</Action>
+	<!-- Request 10 Rubies -->
+	<Action Name="request Ruby4">
+		<MakeItem>
+			<Item Amount="10" ItemId="40045"/>
+			<Material Amount="1" ItemId="40053"/>
+		</MakeItem>
+	</Action>
+	<!-- Request 1 High Quality Saphire -->
+	<Action Name="request Saphire1">
+		<MakeItem>
+			<Item Amount="1" ItemId="40050"/>
+			<Material Amount="10" ItemId="40046"/>
+		</MakeItem>
+	</Action>
+	<!-- Request 1 Top Quality Saphire -->
+	<Action Name="request Saphire2">
+		<MakeItem>
+			<Item Amount="1" ItemId="40054"/>
+			<Material Amount="15" ItemId="40050"/>
+		</MakeItem>
+	</Action>
+	<!-- Request 15 High Quality Saphire -->
+	<Action Name="request Saphire3">
+		<MakeItem>
+			<Item Amount="15" ItemId="40050"/>
+			<Material Amount="1" ItemId="40054"/>
+		</MakeItem>
+	</Action>
+	<!-- Request 10 Saphire -->
+	<Action Name="request Saphire4">
+		<MakeItem>
+			<Item Amount="10" ItemId="40046"/>
+			<Material Amount="1" ItemId="40050"/>
+		</MakeItem>
+	</Action>
+	<!-- Request 1 High Quality Diamond -->
+	<Action Name="request Diamond1">
+		<MakeItem>
+			<Item Amount="1" ItemId="40048"/>
+			<Material Amount="10" ItemId="40044"/>
+		</MakeItem>
+	</Action>
+	<!-- Request 1 Top Quality Diamond -->
+	<Action Name="request Diamond2">
+		<MakeItem>
+			<Item Amount="1" ItemId="40052"/>
+			<Material Amount="15" ItemId="40048"/>
+		</MakeItem>
+	</Action>
+	<!-- Request 15 High Quality Diamond -->
+	<Action Name="request Diamond3">
+		<MakeItem>
+			<Item Amount="15" ItemId="40048"/>
+			<Material Amount="1" ItemId="40052"/>
+		</MakeItem>
+	</Action>
+	<!-- Request 10  Diamond -->
+	<Action Name="request Diamond4">
+		<MakeItem>
+			<Item Amount="10" ItemId="40044"/>
+			<Material Amount="1" ItemId="40048"/>
+		</MakeItem>
+	<!-- Make Magic Doll Princess -->
+	<Action Name="craft princess">
+		<MakeItem>
+			<Item Acmount="1" ItemId="24108"/>
+			<Material Amount="100000" ItemId="41246"/>
+			<Material Acmount="1" ItemId="240113"/>
+		</MakeItem>
+	<!-- Make Magic Doll Lich -->
+	<Action Name="craft lich">
+		<MakeItem>
+			<Item Ammount="1" ItemId="240110"/>
+			<Material Ammount="20000" ItemId="41246"/>
+			<Material Amount="1" ItemId="49037"/>
+			<Material Amount="1" ItemId="41249"/>
+		</MakeItem>
+	<!-- Make Magic Doll Spartoi -->
+	<Action Name="craft spartoi">
+		<MakeItem> 
+			<Item Ammount="1" ItemId="240112"/>
+			<Material Ammount="20000" ItemId="41246"/>
+			<Material Amount="1" ItemId="41250"/>
+			<Material Amount="1" ItemId="49038"/>
+			<!-- Make Magic Doll Lamia -->
+	<Action Name="craft lamia">
+		<MakeItem> 
+			<Item Ammount="1" ItemId="240112"/>
+			<Material Ammount="20000" ItemId="240111"/>
+			<Material Amount="1" ItemId="49292"/>
+			<Material Amount="1" ItemId="49293"/>
+	</Action>	
 </NpcActionList>

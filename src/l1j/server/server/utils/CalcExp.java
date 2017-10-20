@@ -37,12 +37,14 @@ import l1j.server.server.model.L1Object;
 import l1j.server.server.model.L1World;
 import l1j.server.server.model.Instance.L1NpcInstance;
 import l1j.server.server.model.Instance.L1PcInstance;
+import l1j.server.server.model.Instance.L1DollInstance;
 import l1j.server.server.model.Instance.L1PetInstance;
 import l1j.server.server.model.Instance.L1SummonInstance;
 import l1j.server.server.serverpackets.S_PetPack;
 import l1j.server.server.serverpackets.S_ServerMessage;
 import l1j.server.server.templates.L1Pet;
 import l1j.server.server.utils.collections.Lists;
+
 
 public class CalcExp {
 	private static Logger _log = Logger.getLogger(CalcExp.class.getName());
@@ -53,8 +55,6 @@ public class CalcExp {
 
 	private static final double RoyalPartyBonus = .059;
 	private static final double MemberPartyBonus = .04;
-	private static final double PetPenalty = .12;
-
 	/**
 	 * Returns a two element array containing the total experience hate and
 	 * total alternate (karma and lawful hate). Warning: prunes the parameter
@@ -123,6 +123,7 @@ public class CalcExp {
 			}
 		}
 
+
 		// Put pets and summons in the same group as their masters.
 		for (Pair<L1NpcInstance, Integer> pair : stragglers) {
 			L1NpcInstance character = pair.getFirst();
@@ -137,9 +138,6 @@ public class CalcExp {
 
 		return groups;
 	}
-
-	// TODO: finalize - starting off a little shorter than shout.
-	private static final int EXP_RANGE = 40;
 
 	private static boolean groupContainsRoyal(
 			List<Pair<L1Character, Integer>> group) {
@@ -534,26 +532,37 @@ public class CalcExp {
 
 		double exppenalty = ExpTable.getPenaltyRate(pc.getLevel());
 		double foodBonus = 1.0;
+		double dollBonus = 1.0;
+		
 		if (pc.hasSkillEffect(COOKING_1_7_N)
 				|| pc.hasSkillEffect(COOKING_1_7_S)) {
-			foodBonus = 1.01;
+			foodBonus = 6.0;
 		}
 		if (pc.hasSkillEffect(COOKING_2_7_N)
 				|| pc.hasSkillEffect(COOKING_2_7_S)) {
-			foodBonus = 1.02;
+			foodBonus = 6.5;
 		}
 		if (pc.hasSkillEffect(COOKING_3_7_N)
 				|| pc.hasSkillEffect(COOKING_3_7_S)) {
-			foodBonus = 1.03;
+			foodBonus = 7.0;
+		}
+		
+		for (L1DollInstance doll : pc.getDollList().values()) {
+			int dollType = doll.getDollType();
+			if (dollType == L1DollInstance.DOLLTYPE_PRINCESS) {
+				dollBonus = 10.0;
+			}
 		}
 		// Cut XP in half for DI kills.
 		double diPenalty = 1.0;
 		if (pc.getLocation().getMapId() == 303) {
 			diPenalty = 0.5;
 		}
-		int add_exp = (int) (exp * exppenalty * Config.RATE_XP * foodBonus * diPenalty);
+		int add_exp = (int) (exp * exppenalty * Config.RATE_XP * foodBonus * dollBonus * diPenalty);
 
 		pc.addExp(add_exp);
+
+	
 	}
 
 	private static void AddExpPet(L1PetInstance pet, int exp) {

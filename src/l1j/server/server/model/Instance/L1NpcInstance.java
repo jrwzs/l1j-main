@@ -2181,11 +2181,11 @@ public class L1NpcInstance extends L1Character {
 			return;
 		}
 		if (_deleteTask != null) {
-			if (!_future.cancel(false)) {
+			if (!get_future().cancel(false)) {
 				return;
 			}
 			_deleteTask = null;
-			_future = null;
+			set_future(null);
 		}
 		super.resurrect(hp);
 
@@ -2202,8 +2202,8 @@ public class L1NpcInstance extends L1Character {
 			return;
 		}
 		_deleteTask = new DeleteTimer(getId());
-		_future = GeneralThreadPool.getInstance().schedule(_deleteTask,
-				Config.NPC_DELETION_TIME * 1000);
+		set_future(GeneralThreadPool.getInstance().schedule(_deleteTask,
+				Config.NPC_DELETION_TIME * 1000));
 	}
 
 	protected static class DeleteTimer extends TimerTask {
@@ -2319,5 +2319,13 @@ public class L1NpcInstance extends L1Character {
 			_chatTimer.schedule(_chatTask, npcChat.getStartDelayTime(),
 					npcChat.getRepeatInterval());
 		}
+	}
+
+	public ScheduledFuture<?> get_future() {
+		return _future;
+	}
+
+	public void set_future(ScheduledFuture<?> _future) {
+		this._future = _future;
 	}
 }

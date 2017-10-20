@@ -5,6 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import l1j.server.server.model.Instance.L1PcInstance;
+import l1j.server.server.serverpackets.S_SkillSound;
 
 public class MpRegenerationByDoll extends TimerTask {
 	private static Logger _log = Logger.getLogger(MpRegenerationByDoll.class
@@ -32,8 +33,12 @@ public class MpRegenerationByDoll extends TimerTask {
 		int newMp = _pc.getCurrentMp() + 15;
 		if (newMp < 0) {
 			newMp = 0;
+			
 		}
 		_pc.setCurrentMp(newMp);
+		_pc.sendPackets(new S_SkillSound(_pc.getId(), 7680)); 
+		_pc.broadcastPacket(new S_SkillSound(_pc.getId(), 7680));
+	
 	}
 
 }

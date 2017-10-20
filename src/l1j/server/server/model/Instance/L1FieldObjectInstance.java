@@ -50,7 +50,7 @@ public class L1FieldObjectInstance extends L1NpcInstance {
 		int winnersCount = house.getWinnersCount();
 		int goalCount = house.getGoalCount();
 		if (winnersCount == goalCount + 1) {
-			L1ItemInstance item = ItemTable.getInstance().createItem(49280);
+			L1ItemInstance item = ItemTable.getInstance().createItem(49278);
 			item.setCount(1);
 			checkAddNotify(pc, item);
 			house.endHauntedHouse();
@@ -65,10 +65,10 @@ public class L1FieldObjectInstance extends L1NpcInstance {
 				if (goalCount == 1) {
 					item = ItemTable.getInstance().createItem(49278);
 				} else if (goalCount == 2) {
-					item = ItemTable.getInstance().createItem(49279);
+					item = ItemTable.getInstance().createItem(49278);
 				}
 			} else if (winnersCount == 2) {
-				item = ItemTable.getInstance().createItem(49279);
+				item = ItemTable.getInstance().createItem(49278);
 			}
 			item.setCount(1);
 			checkAddNotify(pc, item);

@@ -2247,7 +2247,7 @@ public class C_ItemUSe extends ClientBasePacket {
 			} else if (itemId == 41248 || itemId == 41249 || itemId == 41250
 					|| itemId == 49037 || itemId == 49038 || itemId == 49039
 					|| itemId == 49289 || itemId == 49292 || itemId == 49293
-					|| itemId == 240107 ) {
+					|| itemId == 240108 || itemId == 240110 || itemId == 240111 || itemId == 240112 ) {
 				useMagicDoll(pc, itemId, itemObjid);
 			} else if (itemId >= 41255 && itemId <= 41259) {
 				if (cookStatus == 0) {
@@ -5356,6 +5356,18 @@ public class C_ItemUSe extends ClientBasePacket {
 			} else if (itemId == 49293) {
 				npcId = 80157;
 				dollType = L1DollInstance.DOLLTYPE_COCKATRICE;
+			} else if (itemId == 240108) {
+			npcId = 91317;
+			dollType = L1DollInstance.DOLLTYPE_PRINCESS;
+			} else if (itemId == 240110) {
+				npcId = 7053;
+				dollType = L1DollInstance.DOLLTYPE_LICH;
+			} else if (itemId == 240111) {
+				npcId = 91431;
+				dollType = L1DollInstance.DOLLTYPE_LAMIA;
+			} else if (itemId == 240112) {
+				npcId = 91432;
+				dollType = L1DollInstance.DOLLTYPE_SPARTOI;
 			}
 			L1Npc template = NpcTable.getInstance().getTemplate(npcId);
 			doll = new L1DollInstance(template, pc, dollType, itemObjectId);
@@ -5652,7 +5664,6 @@ public class C_ItemUSe extends ClientBasePacket {
 			inventory.storeItem(scroll);
 		}
 	}
-
 	@Override
 	public String getType() {
 		return C_ITEM_USE;

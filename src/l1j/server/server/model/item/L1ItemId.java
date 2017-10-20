@@ -109,6 +109,8 @@ public class L1ItemId {
 	public static final int STAFF_OF_MANA = 126;
 	public static final int DAGGER_OF_MAGIC_POWER = 259;
 	public static final int THEBES_SWORD = 266;
+	public static final int THEBES_CHAINSWORD = 450006;
+	public static final int THEBES_KIRINGKU = 450007;
 	public static final int THEBES_EDORYU = 265;
 	public static final int THEBES_BOW = 267;
 	public static final int THEBES_STAFF = 268;

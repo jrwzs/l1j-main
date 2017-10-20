@@ -19,6 +19,8 @@ import static l1j.server.server.model.item.L1ItemId.THEBES_BOW;
 import static l1j.server.server.model.item.L1ItemId.THEBES_EDORYU;
 import static l1j.server.server.model.item.L1ItemId.THEBES_STAFF;
 import static l1j.server.server.model.item.L1ItemId.THEBES_SWORD;
+import static l1j.server.server.model.item.L1ItemId.THEBES_CHAINSWORD;
+import static l1j.server.server.model.item.L1ItemId.THEBES_KIRINGKU;
 import static l1j.server.server.model.item.L1ItemId.UNARMED;
 import static l1j.server.server.model.item.L1ItemId.WIND_BLADE_DAGGER;
 import static l1j.server.server.model.skill.L1SkillId.ABSOLUTE_BARRIER;
@@ -1258,7 +1260,8 @@ public class L1Attack {
 
 	public void addChaserAttack() {
 		if (_weaponId != THEBES_BOW && _weaponId != THEBES_STAFF &&
-				_weaponId != THEBES_SWORD && _weaponId != THEBES_EDORYU)
+				_weaponId != THEBES_SWORD && _weaponId != THEBES_EDORYU &&
+				_weaponId != THEBES_CHAINSWORD && _weaponId != THEBES_KIRINGKU)
 			return;
 
 		int mr = 0;

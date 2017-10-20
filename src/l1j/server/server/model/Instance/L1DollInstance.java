@@ -24,10 +24,15 @@ import java.util.concurrent.ScheduledFuture;
 
 import l1j.server.server.GeneralThreadPool;
 import l1j.server.server.encryptions.IdFactory;
+import l1j.server.server.model.L1Character;
 import l1j.server.server.model.L1World;
+import l1j.server.server.model.poison.L1DamagePoison;
+import l1j.server.server.model.skill.L1SkillUse;
+import l1j.server.server.serverpackets.S_DoActionGFX;
 import l1j.server.server.serverpackets.S_DollPack;
 import l1j.server.server.serverpackets.S_SkillSound;
 import l1j.server.server.templates.L1Npc;
+import l1j.server.server.serverpackets.S_SPMR;
 
 public class L1DollInstance extends L1NpcInstance {
 	private static final long serialVersionUID = 1L;
@@ -40,12 +45,15 @@ public class L1DollInstance extends L1NpcInstance {
 	public static final int DOLLTYPE_YETI = 6;
 	public static final int DOLLTYPE_SCARECROW = 7;
 	public static final int DOLLTYPE_COCKATRICE = 8;
+	public static final int DOLLTYPE_PRINCESS = 9;
+	public static final int DOLLTYPE_LICH = 10;
+	public static final int DOLLTYPE_LAMIA = 11;
+	public static final int DOLLTYPE_SPARTOI = 12;
 	public static final int DOLL_TIME = 1800000;
 	private ScheduledFuture<?> _dollFuture;
 	private static Random _random = new Random();
 	private int _dollType;
 	private int _itemObjId;
-	
 
 	public boolean noTarget(int depth) {
 		if (_master.isDead()) {
@@ -82,14 +90,12 @@ public class L1DollInstance extends L1NpcInstance {
 		}
 	}
 
-	public L1DollInstance(L1Npc template, L1PcInstance master, int dollType,
-			int itemObjId) {
+	public L1DollInstance(L1Npc template, L1PcInstance master, int dollType, int itemObjId) {
 		super(template);
 		setId(IdFactory.getInstance().nextId());
 		setDollType(dollType);
 		setItemObjId(itemObjId);
-		_dollFuture = GeneralThreadPool.getInstance().schedule(new DollTimer(),
-				DOLL_TIME);
+		_dollFuture = GeneralThreadPool.getInstance().schedule(new DollTimer(), DOLL_TIME);
 
 		setMaster(master);
 		setX(master.getX() + _random.nextInt(5) - 2);
@@ -111,6 +117,10 @@ public class L1DollInstance extends L1NpcInstance {
 		}
 		master.addAc(getArmorClassByDoll());
 		master.addWater(getResistWaterByDoll());
+		master.addInt(getIntByDoll());
+		master.addSp(getSpellPowerByDoll());
+		((L1PcInstance) _master).sendPackets(new S_SPMR((L1PcInstance) _master));
+		master.addMpr(getMprByDoll());
 	}
 
 	public void deleteDoll() {
@@ -119,6 +129,9 @@ public class L1DollInstance extends L1NpcInstance {
 		}
 		((L1PcInstance) _master).addAc(-getArmorClassByDoll());
 		((L1PcInstance) _master).addWater(-getResistWaterByDoll());
+		((L1PcInstance) _master).addInt(-getIntByDoll());
+		((L1PcInstance) _master).addSp(-getSpellPowerByDoll());
+		((L1PcInstance) _master).sendPackets(new S_SPMR((L1PcInstance) _master));
 		_master.getDollList().remove(getId());
 		deleteMe();
 	}
@@ -165,16 +178,25 @@ public class L1DollInstance extends L1NpcInstance {
 	public boolean isMpRegeneration() {
 		boolean isMpRegeneration = false;
 		int dollType = getDollType();
-		if (dollType == DOLLTYPE_SUCCUBUS || dollType == DOLLTYPE_ELDER) {
+		if (dollType == DOLLTYPE_SUCCUBUS || dollType == DOLLTYPE_ELDER || dollType == DOLLTYPE_LICH) {
 			isMpRegeneration = true;
 		}
 		return isMpRegeneration;
 	}
 
+	public int getMprByDoll() {
+		int mpr = 0;
+		int dollType = getDollType();
+		if (dollType == DOLLTYPE_LICH) {
+			mpr = 6;
+		}
+		return mpr;
+	}
+
 	public int getWeightReductionByDoll() {
 		int weightReduction = 0;
 		int dollType = getDollType();
-		if (dollType == DOLLTYPE_BUGBEAR) {
+		if (dollType == DOLLTYPE_BUGBEAR || dollType == DOLLTYPE_PRINCESS) {
 			weightReduction = 20;
 		}
 		return weightReduction;
@@ -183,7 +205,7 @@ public class L1DollInstance extends L1NpcInstance {
 	public int getDamageReductionByDoll() {
 		int damageReduction = 0;
 		int dollType = getDollType();
-		if (dollType == DOLLTYPE_GOLEM) {
+		if (dollType == DOLLTYPE_GOLEM || dollType == DOLLTYPE_PRINCESS) {
 			int chance = _random.nextInt(100) + 1;
 			if (chance <= 4) {
 				damageReduction = 15;
@@ -205,7 +227,7 @@ public class L1DollInstance extends L1NpcInstance {
 		}
 		return armorClass;
 	}
-	
+
 	public int getResistWaterByDoll() {
 		int resistWater = 0;
 		int dollType = getDollType();
@@ -214,20 +236,23 @@ public class L1DollInstance extends L1NpcInstance {
 		}
 		return resistWater;
 	}
-	
+
 	public int getRangedDmgByDoll() {
 		int rangedDamage = 0;
 		int dollType = getDollType();
-		if (dollType == DOLLTYPE_COCKATRICE) {
-			rangedDamage = 1;
-		}
+				if (dollType == DOLLTYPE_COCKATRICE) {
+					rangedDamage = 1;
+				}
+				if (dollType == DOLLTYPE_LAMIA) {
+					rangedDamage = 5;
+				}
 		return rangedDamage;
 	}
-	
+
 	public int getMeleeDmgByDoll() {
 		int damage = 0;
 		int dollType = getDollType();
-		if (dollType == DOLLTYPE_WAREWOLF || dollType == DOLLTYPE_CRUSTANCEAN) {
+		if (dollType == DOLLTYPE_WAREWOLF || dollType == DOLLTYPE_CRUSTANCEAN || dollType == DOLLTYPE_SPARTOI) {
 			int chance = _random.nextInt(100) + 1;
 			if (chance <= 3) {
 				damage = 15;
@@ -236,9 +261,30 @@ public class L1DollInstance extends L1NpcInstance {
 					pc.sendPackets(new S_SkillSound(_master.getId(), 6319));
 				}
 				_master.broadcastPacket(new S_SkillSound(_master.getId(), 6319));
+				if (dollType == DOLLTYPE_SPARTOI) {
+					damage = 3;
+				}
 			}
 		}
 		return damage;
+	}
+
+	public int getIntByDoll() {
+		int Int = 0;
+		int dollType = getDollType();
+		if (dollType == DOLLTYPE_PRINCESS) {
+			Int = 0;
+		}
+		return Int;
+	}
+
+	public int getSpellPowerByDoll() {
+		int spellPower = 0;
+		int dollType = getDollType();
+		if (dollType == DOLLTYPE_LICH) {
+			spellPower = 2;
+		}
+		return spellPower;
 	}
 
 	public int getRangedHitByDoll() {
@@ -250,6 +296,9 @@ public class L1DollInstance extends L1NpcInstance {
 		if (dollType == DOLLTYPE_SCARECROW) {
 			rangedHit = 2;
 		}
+		if (dollType == DOLLTYPE_LAMIA) {
+			rangedHit = 5;
+		}
 		return rangedHit;
 	}
 
@@ -258,6 +307,9 @@ public class L1DollInstance extends L1NpcInstance {
 		int dollType = getDollType();
 		if (dollType == DOLLTYPE_SCARECROW) {
 			meleeHit = 2;
+		}
+		if (dollType == DOLLTYPE_SPARTOI) {
+			meleeHit = 3;
 		}
 		return meleeHit;
 	}
@@ -279,4 +331,5 @@ public class L1DollInstance extends L1NpcInstance {
 		}
 		return mpBonus;
 	}
+
 }

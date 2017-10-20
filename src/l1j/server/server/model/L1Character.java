@@ -23,6 +23,7 @@ import l1j.server.server.serverpackets.S_Light;
 import l1j.server.server.serverpackets.S_OtherCharPacks;
 import l1j.server.server.serverpackets.S_Poison;
 import l1j.server.server.serverpackets.S_RemoveObject;
+import l1j.server.server.serverpackets.S_SPMR;
 import l1j.server.server.serverpackets.ServerBasePacket;
 import l1j.server.server.types.Point;
 import l1j.server.server.utils.IntRange;
@@ -1134,4 +1135,12 @@ public class L1Character extends L1Object {
 	public void setOwnLightSize(int i) {
 		_ownLightSize = i;
 	}
+
+	public L1Character getSkillEffectTimerSet() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
 }

@@ -123,7 +123,7 @@ public class L1Cube extends TimerTask {
 				L1MonsterInstance mob = (L1MonsterInstance) _cha;
 				mob.broadcastPacket(new S_DoActionGFX(mob.getId(),
 						ActionCodes.ACTION_Damage));
-				mob.receiveDamage(_effect, 10);
+				mob.receiveDamage(_effect, 25);
 			}
 		} else if (_skillId == STATUS_CUBE_QUAKE_TO_ENEMY) {
 			if (_timeCounter % 4 != 0) {
@@ -181,7 +181,7 @@ public class L1Cube extends TimerTask {
 					pc.receiveDamage(_effect, 25, false);
 				} else if (_cha instanceof L1MonsterInstance) {
 					L1MonsterInstance mob = (L1MonsterInstance) _cha;
-					mob.receiveDamage(_effect, 25);
+					mob.receiveDamage(_effect, 50);
 				}
 			}
 		}

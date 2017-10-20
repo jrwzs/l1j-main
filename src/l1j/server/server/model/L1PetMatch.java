@@ -44,8 +44,8 @@ public class L1PetMatch {
 	public static final int MAX_PET_MATCH = 1;
 
 	private static final int PETMATCH_MEDAL = 41309;
-	private static final int WINNER_MEDALS = 3;
-	private static final int LOSER_MEDALS = 1;
+	private static final int WINNER_MEDALS = 10;
+	private static final int LOSER_MEDALS = 5;
 
 	private static final short[] PET_MATCH_MAPID = { 5125, 5131, 5132, 5133,
 			5134 };
