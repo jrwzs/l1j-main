@@ -3766,6 +3766,7 @@
 			<Material Ammount="20000" ItemId="41246"/>
 			<Material Amount="1" ItemId="41250"/>
 			<Material Amount="1" ItemId="49038"/>
+		</MakeItem>
 			<!-- Make Magic Doll Lamia -->
 	<Action Name="craft lamia">
 		<MakeItem> 
@@ -3773,5 +3774,6 @@
 			<Material Ammount="20000" ItemId="240111"/>
 			<Material Amount="1" ItemId="49292"/>
 			<Material Amount="1" ItemId="49293"/>
+		</MakeItem>
 	</Action>	
 </NpcActionList>
