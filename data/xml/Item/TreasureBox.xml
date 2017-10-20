@@ -672,15 +672,15 @@
 	</TreasureBox>
 	<!-- Magic Bag of Arka -->
 	<TreasureBox Type="RANDOM" ItemId="41247">
-		<Item ItemId="41248" Count="1" Chance="15.5" /> <!-- Magic Doll: Bugbear -->
-		<Item ItemId="41249" Count="1" Chance="15.5" /> <!-- Magic Doll: Succubus -->
-		<Item ItemId="41250" Count="1" Chance="15.5" /> <!-- Magic Doll: Werewolf -->
-		<Item ItemId="49037" Count="1" Chance="15.5" /> <!-- Magic Doll: Elder -->
-		<Item ItemId="49038" Count="1" Chance="15.5" /> <!-- Magic Doll: Crustacean -->
-		<Item ItemId="49039" Count="1" Chance="15.5" /> <!-- Magic Doll: Stone Golem -->
-		<Item ItemId="49289" Count="1" Chance="3.5" /> <!-- Magic Doll: Yeti -->
-		<Item ItemId="49293" Count="1" Chance="15.5" /> <!-- Magic Doll: Cockatrice -->
-		<Item Itemid="49293" Count="1" Chance="15.5"/> <!-- Magic Doll: Scarecrow
+		<Item ItemId="41248" Count="1" Chance="12" /> <!-- Magic Doll: Bugbear -->
+		<Item ItemId="41249" Count="1" Chance="12" /> <!-- Magic Doll: Succubus -->
+		<Item ItemId="41250" Count="1" Chance="12" /> <!-- Magic Doll: Werewolf -->
+		<Item ItemId="49037" Count="1" Chance="12" /> <!-- Magic Doll: Elder -->
+		<Item ItemId="49038" Count="1" Chance="12" /> <!-- Magic Doll: Crustacean -->
+		<Item ItemId="49039" Count="1" Chance="12" /> <!-- Magic Doll: Stone Golem -->
+		<Item ItemId="49289" Count="1" Chance="4" /> <!-- Magic Doll: Yeti -->
+		<Item ItemId="49293" Count="1" Chance="12" /> <!-- Magic Doll: Cockatrice -->
+		<Item Itemid="49293" Count="1" Chance="12"/> <!-- Magic Doll: Scarecrow -->
 	</TreasureBox>
 	<!--Parum's Crop Pouch -->
 	<TreasureBox Type="RANDOM" ItemId="41355">
@@ -885,12 +885,12 @@
 	</TreasureBox>
 	<!-- Opened High-Grade Treasure Chest of Osiris -->
 	<TreasureBox Type="RANDOM" ItemId="49100">
-		<Item ItemId=" 40044" Count="3" Chance=" 7" />
-		<Item ItemId=" 40045" Count="3" Chance=" 7" />
-		<Item ItemId=" 40046" Count="3" Chance=" 7" />
-		<Item ItemId=" 40047" Count="3" Chance=" 7" />
-		<Item ItemId=" 40048" Count="2" Chance=" 6" />
-		<Item ItemId=" 40049" Count="2" Chance=" 6" />
+		<Item ItemId=" 40044" Count="3" Chance=" 6" />
+		<Item ItemId=" 40045" Count="3" Chance=" 6" />
+		<Item ItemId=" 40046" Count="3" Chance=" 6" />
+		<Item ItemId=" 40047" Count="3" Chance=" 6" />
+		<Item ItemId=" 40048" Count="2" Chance=" 5" />
+		<Item ItemId=" 40049" Count="2" Chance=" 5" />
 		<Item ItemId=" 40050" Count="2" Chance=" 6" />
 		<Item ItemId=" 40051" Count="2" Chance=" 6" />
 		<Item ItemId=" 40052" Count="1" Chance=" 5" />
@@ -1074,13 +1074,20 @@
 	</TreasureBox>
 	<!-- Bronze Pumpkin of a Brave Man (Gold) -->
 	<TreasureBox Type="RANDOM" ItemId="49278">
+		<Item ItemId="40010" Count="45" Chance="9.5" />	<!--RP-->
+		<Item ItemId="40011" Count="25" Chance="10.5" />	<!--OP-->
+		<Item ItemId="40012" Count="12" Chance="5" />	<!--CP-->
+		<Item ItemId="40013" Count="15" Chance="15" />	<!--GP-->
+		<Item ItemId="40018" Count="8" Chance="5" />	<!--GGP-->
+		<Item ItemId="40074" Count="1" Chance="7" />	<!--ZEL-->
+		<Item ItemId="40087" Count="1" Chance="4" />	<!--DAI-->
+		<Item ItemId="40088" Count="8" Chance="5" />	<!--SOSC-->
+		<Item ItemId="40318" Count="15" Chance="10" />
+		<Item ItemId="40319" Count="30" Chance="9.6" />
 		<Item ItemId="49143" Count="1" Chance="4" />
 		<Item ItemId="49143" Count="2" Chance="5" />
 		<Item ItemId="49143" Count="3" Chance="6" />
-		<Item ItemId="41251" Count="2" Chance="5"/>
-		<Item ItemId="240109" Count="3" Chance="5"/>
-		<Item ItemId="140074" Count="2" Chance="12"/>
-		<Item ItemId="140087" Count="2" Chance="12"
+		<Item ItemId="41251" Count="1" Chance="4.4" />
 	</TreasureBox>
 	<!-- Bronze Pumpkin of a Brave Man (Silver) -->
 	<TreasureBox Type="RANDOM" ItemId="49279">

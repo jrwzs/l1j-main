@@ -8,3 +8,4 @@ l1jen.jar
 .gradle
 .idea
 build
+config/server.properties

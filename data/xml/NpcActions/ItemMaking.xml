@@ -3744,36 +3744,37 @@
 			<Item Amount="10" ItemId="40044"/>
 			<Material Amount="1" ItemId="40048"/>
 		</MakeItem>
-	<!-- Make Magic Doll Princess -->
-	<Action Name="craft princess">
+	</Action>
+	<!-- craft princess -->
+	<Action Name="request princess">
 		<MakeItem>
-			<Item Acmount="1" ItemId="24108"/>
+			<Item Amount="1" ItemId="240108"/>
+			<Material Amount="1" ItemId="240113"/>
 			<Material Amount="100000" ItemId="41246"/>
-			<Material Acmount="1" ItemId="240113"/>
 		</MakeItem>
-	<!-- Make Magic Doll Lich -->
-	<Action Name="craft lich">
+	</Action>
+	<Action Name="request lich">
 		<MakeItem>
-			<Item Ammount="1" ItemId="240110"/>
-			<Material Ammount="20000" ItemId="41246"/>
+			<Item Amount="1" ItemId="240110"/>
 			<Material Amount="1" ItemId="49037"/>
 			<Material Amount="1" ItemId="41249"/>
+			<Materia Amount="20000" ItemId="41246"/>
 		</MakeItem>
-	<!-- Make Magic Doll Spartoi -->
-	<Action Name="craft spartoi">
-		<MakeItem> 
-			<Item Ammount="1" ItemId="240112"/>
-			<Material Ammount="20000" ItemId="41246"/>
+	</Action>
+	<Action Name="request spartoi">
+		<MakeItem>
+			<Item Amount="1" ItemId="240112"/>
 			<Material Amount="1" ItemId="41250"/>
 			<Material Amount="1" ItemId="49038"/>
+			<Material Amount="20000" ItemId="41246"/>
 		</MakeItem>
-			<!-- Make Magic Doll Lamia -->
-	<Action Name="craft lamia">
-		<MakeItem> 
-			<Item Ammount="1" ItemId="240112"/>
-			<Material Ammount="20000" ItemId="240111"/>
-			<Material Amount="1" ItemId="49292"/>
+	</Action>
+	<Action Name="request lamia">
+		<MakeItem>
+			<Item Amount="1" ItemId="240111"/>
 			<Material Amount="1" ItemId="49293"/>
+			<Material Amount="1" ItemId="49292"/>
+			<Material Amount="20000" ItemId="41246"/>
 		</MakeItem>
-	</Action>	
+	</Action>
 </NpcActionList>
